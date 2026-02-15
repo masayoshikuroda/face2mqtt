@@ -1,0 +1,7 @@
+MQTT_BROKER=mqtt.local
+MQTT_PORT=1883
+MQTT_TOPIC=face2mqtt
+MQTT_DATA={ "type" : "start" }
+IP_CAMERA_URL=http://ipcamera:8081
+DETECT_LEVEL=0.7
+DETECT_INTERVAL=1.0

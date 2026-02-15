@@ -1,0 +1,16 @@
+[Unit]
+Description=Detect human face from IP camera and notify mqtt broker
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/face2mqtt
+EnvironmentFile=/etc/default/face2mqtt
+ExecStart=/home/pi/face2mqtt/.venv/bin/python main.py
+Restart=always
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
