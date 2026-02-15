@@ -62,13 +62,15 @@ VSCodeでデバッグ実行
 
 ## サービスとして実行
 
-設定ファイルの配置
+RaspberryPI OS を想定
 
-face2qtt ファイルを/etc/default/ にコピー
+### 設定ファイルの配置
+
+face2qtt ファイルを/etc/default/ にコピー。値を修正
 face2mqtt.service ファイル中の [Service]セクションのの値を修正
 face2mqtt.service ファイルを/etc/systemd/system/ にコピー
 
-有効化
+### 有効化
 
 ```
 $ sudo systemctl daemon-reload
