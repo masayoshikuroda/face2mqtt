@@ -3,6 +3,7 @@ import requests
 import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
+from typing import List
 
 class FaceDetector:
     def __init__(self):
@@ -20,9 +21,12 @@ class FaceDetector:
         with open(self.model_name, mode='wb') as f:
             f.write(urlData)
 
-    def detect(self, img_rgb):
+    def detect(self, img_rgb) -> List[vision.DetectionResult]:
         image = mp.Image(image_format=mp.ImageFormat.SRGB, data=img_rgb)
-        detection_result = self.detector.detect(image)
+        return self.detector.detect(image)
+
+    def calc_score(self, img_rgb)-> float:
+        detection_result = self.detector.analyze(self, img_rgb)
         if len(detection_result.detections) > 0:
             score = detection_result.detections[0].categories[0].score
             return score

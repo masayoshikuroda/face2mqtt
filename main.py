@@ -41,8 +41,8 @@ detector = FaceDetector()
 
 while(True):
     img_rgb = camera.take_snapshot()
-    score = detector.detect(img_rgb)
-    if score > float(DETECT_LEVEL):
-        print('Face detected! score=' + str(score))
+    score = detector.calc_score(img_rgb)
+    print('Face detected! score=' + str(score))
+    if score > float(DETECT_LEVEL):    
         client.publish(MQTT_TOPIC, MQTT_DATA)
     time.sleep(float(DETECT_INTERVAL))
