@@ -15,7 +15,7 @@ IP_CAMERA_URL    = os.getenv('IP_CAMERA_URL',    'http://ipcamera.local:8081')
 IP_CAMERA_ROTATE = os.getenv('IP_CAMERA_ROTATE', '0')
 IP_CAMERA_FLIP   = os.getenv('IP_CAMERA_FLIP',   '0')
 DETECT_LEVEL     = os.getenv('DETECT_LEVEL',     '0.7')
-DETECT_INTERVAL  = os.getenv('DETECT_LEVEL',     '1.0')
+DETECT_INTERVAL  = os.getenv('DETECT_INTERVAL',  '1.0')
 
 def on_connect(client, userdata, flags, reason_code, properties):
     if reason_code == 0:
