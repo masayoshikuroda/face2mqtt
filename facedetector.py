@@ -14,7 +14,16 @@ class FaceDetector:
         base_options = python.BaseOptions(model_asset_path=self.model_name)
         options = vision.FaceDetectorOptions(base_options=base_options)
         self.detector = vision.FaceDetector.create_from_options(options)
+    
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()
 
+    def close(self):
+        self.detector.close()
+        
     def download_model(self):
         url = 'https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/' + self.model_name
         urlData = requests.get(url).content
